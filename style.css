@@ -2,9 +2,63 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  
+  --cor-primaria: #6abfd6;
+  --cor-secundaria: #ffffff;
+  --cor-botao: #ffffff;
+  --cor-fundo: #eae4e4;
+  --cor-primaria-texto: #ffffff;
+  --cor-secundaria-texto: #ffffff;
+  --cor-bordas: #aaa;
+  --cor-background: #1b4378e4;
+  --cor-footer: #444;
+  --cor-cartão-primaria: #28333e;
+  --cor-cartão-secundaria: #0a2e5c;
+  --cor-link-hover: #286593;
+  --cor-header-menu: #15afce;
+}
+
+
+[data-theme="dark"] {
+  --cor-primaria: #000000;
+  --cor-secundaria: #000000;
+  --cor-botao: #7d01ed;
+  --cor-fundo: #272727;
+  --cor-primaria-texto: #3022b4;
+  --cor-secundaria-texto: #3f458e;
+  --cor-bordas: #aaa;
+  --cor-background: #392553;
+  --cor-footer: #333;
+  --cor-cartão-primaria: #647280;
+  --cor-cartão-secundaria: #0a2e5c;
+  --cor-link-hover: #7a1699;
+  --cor-header-menu: #58085c;
+
+}
+
+[data-theme="alto-contraste"]{
+--cor-primaria: #ffffff;
+--cor-secundaria: #222121;
+--cor-botao: #ff5656;
+--cor-fundo: #000000;
+--cor-primaria-texto: #ffffff;
+--cor-secundaria-texto: #ffffff;
+--cor-bordas: #ccff00;
+--cor-background: #3b3737e4;
+--cor-footer: #444;
+--cor-cartão-primaria: #19b144;
+--cor-cartão-secundaria: #b3ee12;
+--cor-link-hover: #b8cd1b;
+--cor-header-menu: #b8ce15;
+
+
+}
+
 body {
-  background-color: #ffffff;
-  font-family: 'Source Code Pro', monospace;
+  background-color: var(--cor-fundo);  
+  font-family: 'Lora', serif;
+  color: white;
   margin: 0;
   padding: 0;
   line-height: 1.6;
@@ -13,19 +67,21 @@ body {
 h1 {
   font-size: 25px;
   font-weight: 900;
+  color: var(--cor-primaria-texto);
   margin-top: 0;
 }
 
 h2 {
   font-size: 32px;
   font-weight: bold;
+  color: var(--cor-secundaria-texto);
   margin-top: 0;
 }
 
 header {
-  background-color: #0077b6;
+  background-color: var(--cor-footer);
   padding: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 1);
+  box-shadow: 0px 4px 8px rgb(0, 0, 0);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -42,29 +98,29 @@ header ul {
 }
 
 header ul li a {
-  color: white;
+  color: rgb(255, 255, 255);
   text-decoration: none;
   font-weight: 700;
   padding: 0.5rem 1rem;
 }
 
 header ul li a:hover {
-  background-color: rgb(201, 201, 193);
+  background-color: var(--cor-header-menu);
   border-radius: 6px;
   transition: background-color 0.3s ease;
 }
 
 section {
-  background-color: #fff;
+  background: var(--cor-background);
   min-height: 80vh;
   height: 80vh;
   margin: 10vh auto;
   padding: 1rem;
   scroll-margin-top: 4rem;
-  border: 1px solid black;
+  border: 1px solid var(--cor-bordas);
   
   border-radius: 6px;
-  max-width: 900px;
+  max-width: 1200px;
   min-height: 80vh;
 }
 
@@ -84,11 +140,11 @@ img {
   display: block;
   margin: 10px auto;
   border-radius: 8px;
-  border: 3px solid rgb(153, 156, 156);
+  border: 3px solid var(--cor-background);
 }
 
 a {
-  color: #87afef;
+  color: #3f380e;
   text-decoration: none;
 }
 
@@ -99,7 +155,7 @@ a:hover {
 .social-links a {
   display: inline-block;
   margin-right: 1rem;
-  color: #333;
+  color: nav (var(--cor-primaria-texto));
   font-size: 1.2rem;
   text-decoration: none;
 }
@@ -109,7 +165,7 @@ a:hover {
 }
 
 .social-links a:hover {
-  color: #000;
+  color: var(--cor-link-hover);
 }
 
 form input,
@@ -120,25 +176,25 @@ form textarea {
   margin: 10px 0;
   padding: 10px;
   border-radius: 6px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--cor-bordas);
   font-size: 16px;
 }
 
 form input[type="submit"] {
-  background-color: #444;
-  color: white;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 form input[type="submit"]:hover {
-  background-color: #333;
+  background-color: var(--cor-bordas);
 }
 
 footer {
-  background-color: #444;
-  color: white;
+  background: var(--cor-footer);
+  color: rgb(255, 255, 255);
   text-align: center;
   padding: 10px;
   margin-top: 30px;
@@ -147,50 +203,6 @@ footer {
 textarea {
   resize: none;
 }
-
-/* Modo escuro */
-#toggle-label {
-  position: fixed;
-  top: 65px;
-  right: 5px;
-  background-color: #333;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  z-index: 1001;
-  font-size: 14px;
-}
-
-#modo-escuro:checked ~ * {
-  background-color: #121212;
-  color: #f0f0f0;
-}
-
-#modo-escuro:checked ~ header {
-  background-color: #1e1e1e;
-}
-
-#modo-escuro:checked ~ footer {
-  background-color: #1e1e1e;
-  color: #ccc;
-}
-
-#modo-escuro:checked ~ section {
-  background-color: #1e1e1e;
-  border-color: #444;
-}
-
-#modo-escuro:checked ~ #toggle-label {
-  background-color: #ccc;
-  color: #000;
-}
-
-#modo-escuro:checked ~ a {
-  color: #9ae6ff;
-}
-
-
 
 
 /*  COMEÇO DOS CARDSCards de Hard Skills */
@@ -202,8 +214,8 @@ textarea {
 }
 
 .card-skill {
-  background: linear-gradient(135deg, #ffffff, #f0f0f0);
-  border: 1px solid #dcdcdc;
+  background: linear-gradient(135deg, var(--cor-cartão-primaria), var(--cor-cartão-secundaria));
+  border: 1px var(--cor-bordas);
   border-radius: 12px;
   padding: 1rem;
   text-align: center;
@@ -219,11 +231,11 @@ textarea {
 .card-skill h3 {
   margin-bottom: 0.5rem;
   font-size: 18px;
-  color: #222;
+  color: #fffffff3;
 }
 
 .card-skill p {
-  color: #555;
+  color: #ffffff;
   font-size: 15px;
 }
 #meus-projetos {
@@ -233,8 +245,8 @@ textarea {
 .project-card {
   width: 300px;
   height: 200px;
-  margin: 20px auto;
-  border: 2px solid #ddd;
+  margin: 1px auto;
+  border: 2px solid var(--cor-bordas);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -243,7 +255,7 @@ textarea {
 
 .project-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgb(0, 0, 0);
 }
 
 .project-card a {
@@ -259,15 +271,36 @@ textarea {
 .card-content h3 {
   font-size: 18px;
   margin-bottom: 10px;
-  color: #333;
+  color: var(--cor-bordas);
 }
 
 .card-content p {
   font-size: 14px;
-  color: #777;
+  color: #ffffff;
 }
 
 .card-content p:hover {
-  color: #000;
+  color: #8a78b0;
   cursor: pointer;
+}
+
+#sobreMim {
+  display: block;
+  padding: 4rem 20rem;
+}
+
+#sobreMim img {
+    float: left;
+    margin: 0 2rem 1rem 0;
+    width: 30vw;
+    border-radius: 50%;
+    border: 5px solid var(--cor-bordas);
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    
+}
+
+#sobreMim p {
+   text-align: justify;
+   margin-bottom: 1rem;
+   line-height: 1.6;
 }
